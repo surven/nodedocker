@@ -1,4 +1,4 @@
-tar -xzvf $(find node* -type f -maxdepth 0)
+tar -xzvf $(find node*.tar.gz -type f -maxdepth 0)
 mv $(find node* -type d -maxdepth 0) /usr/local/node
 ls -a /usr/local/node
 cp /usr/local/node/bin/node /usr/local/bin/node

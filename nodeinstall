@@ -1,0 +1,17 @@
+tar -xzvf $(find node* -type f -maxdepth 0)
+mv $(find node* -type d -maxdepth 0) /usr/local/node
+ls -a /usr/local/node
+cp /usr/local/node/bin/node /usr/local/bin/node
+ln -s /usr/local/node/include/node  /usr/local/node
+cp -R -f  /usr/local/node/lib/node_modules /usr/local/lib/node_modules
+ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm
+
+mkdir /usr/local/share/man/man1
+mkdir /usr/local/share/man/man5
+mkdir /usr/local/share/man/man7
+ln -s $(find /usr/local/node/share/man/man1/n*) /usr/local/share/man/man1/
+ln -s $(find /usr/local/lib/node_modules/npm/man/man1/n*) /usr/local/share/man/man1/
+ln -s $(find /usr/local/lib/node_modules/npm/man/man5/n*) /usr/local/share/man/man5/
+ln -s $(find /usr/local/lib/node_modules/npm/man/man7/n*) /usr/local/share/man/man7/
+
+node -v
